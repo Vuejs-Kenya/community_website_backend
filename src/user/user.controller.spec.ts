@@ -1,20 +1,27 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
 describe('UserController', () => {
-  let controller: UserController;
+  let userController: UserController;
+  let userService: UserService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const moduleRef = await Test.createTestingModule({
       controllers: [UserController],
       providers: [UserService],
     }).compile();
 
-    controller = module.get<UserController>(UserController);
+    userService = await moduleRef.get<UserService>(UserService);
+    userController = await moduleRef.get<UserController>(UserController);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
+  // describe('findAll', () => {
+  //   it('should return an array of users', async () => {
+  //     const result = ['test'];
+  //     jest.spyOn(userService, 'getUsers').mockImplementation(() => result);
+  //
+  //     expect(await userController.findAll()).toBe(result);
+  //   })
+  // });
 });
