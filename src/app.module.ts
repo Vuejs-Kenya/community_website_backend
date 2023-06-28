@@ -7,6 +7,7 @@ import { RegisterModule } from './register/register.module';
 import { UserModule } from './user/user.module';
 import { VideosModule } from './videos/videos.module';
 import { PostsModule } from './posts/posts.module';
+import { EventsModule } from './events/events.module';
 
 import entities from './typeorm';
 
@@ -28,7 +29,7 @@ import entities from './typeorm';
       inject: [ConfigService],
   }),
   RegisterModule, 
-  UserModule, VideosModule, PostsModule],
+  UserModule, VideosModule, PostsModule, EventsModule],
   controllers: [AppController],
   providers: [AppService],
 })
