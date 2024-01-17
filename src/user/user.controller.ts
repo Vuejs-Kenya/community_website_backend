@@ -7,12 +7,13 @@ export class UserController{
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: CreateUserDto) {
     return this.userService.createUser(createUserDto);
   }
 
   @Get()
   findAll() {
+    //Handle empty response
     return this.userService.getUsers();
   }
 

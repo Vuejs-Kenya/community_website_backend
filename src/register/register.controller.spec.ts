@@ -3,7 +3,7 @@ import { RegisterController } from './register.controller';
 import { RegisterService } from './register.service';
 
 describe('RegisterController', () => {
-  let controller: RegisterController;
+  let controller: TInput;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
