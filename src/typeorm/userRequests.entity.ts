@@ -1,19 +1,18 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { UserRequests } from "./userRequests.entity";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class UserRequests {
   @PrimaryGeneratedColumn({
     type: 'bigint',
     name: 'id',
   })
   id: number;
-  
+
   @Column({
     nullable: false,
     default: '',
   })
-  username: string;
+  user: string;
 
   @Column({
     name: 'email_address',
@@ -28,25 +27,15 @@ export class User {
   })
   password: string;
 
-  @Column
-    firstName: string
-
-  @Column
-    lastName: string
+  @Column({
+    nullable: false,
+    default: false
+  })
+  isVerified: boolean
 
   @Column({
     nullable: false,
     default: false
   })
-    isVerified: boolean;
-
-  @Column({
-    nullable: false,
-    default: false
-  })
-    isAdmin: boolean
-
-  @OneToMany(type => UserRequests, userRequests => userRequests.user)
-  userRequests: UserRequests[]
-
+  isAdmin: boolean
 }

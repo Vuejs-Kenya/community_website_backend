@@ -12,4 +12,6 @@ export class CreateUserDto {
     @IsNotEmpty()
     @IsEmail()
     email: string;
+
+    //handle addition of phone numbers, firstname, lastname
 }

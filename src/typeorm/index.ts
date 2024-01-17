@@ -1,8 +1,9 @@
+import { Event } from "./events.entity"
 import { Post } from "./posts.entity";
 import { User } from "./user.entity";
 import { Video } from "./videos.entity";
 
-const entities = [User, Post, Video];
+const entities = [Event, User, Post, Video];
 
-export { Post, User, Video };
+export { Event, Post, User, Video };
 export default entities;
